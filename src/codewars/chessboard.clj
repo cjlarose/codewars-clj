@@ -2,8 +2,5 @@
 (ns codewars.chessboard)
 
 (defn game [n]
-  (let [board (for [i (range n) j (range n)] (/ (+ j 1) (+ i j 2)))
-        sum (reduce + 0 board)]
-    (if (ratio? sum)
-      [(numerator sum) (denominator sum)]
-      [sum])))
+  (let [square (* n n)]
+    (if (odd? square) [square 2] [(/ square 2)])))
